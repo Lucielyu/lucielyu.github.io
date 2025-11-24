@@ -7,34 +7,40 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <!-- HEADER / NAV -->
     <header class="site-header">
-      <nav class="nav">
-        <a href="#home" class="nav-link active">Home</a>
-        <a href="#about" class="nav-link">About</a>
-        <a href="#skills" class="nav-link">Skills</a>
-        <a href="#experience" class="nav-link">Experience</a>
-        <a href="#interests" class="nav-link">Interests</a>
-        <a href="#contact" class="nav-link">Contact</a>
-      </nav>
+  <!-- Top-left name / logo -->
+      <a href="#home" class="site-logo">Luciel Yu</a>
 
-      <!-- Theme toggle -->
-      <button class="theme-toggle" aria-label="Toggle dark mode">
-        <!-- default icon for light mode -->
-        <img src="icons/theme-light.svg" alt="" />
-      </button>
-    </header>
+  <!-- Right side: nav + theme toggle -->
+  <div class="header-right">
+    <nav class="nav">
+      <a href="#home" class="nav-link active">Home</a>
+      <a href="#about" class="nav-link">About</a>
+      <a href="#skills" class="nav-link">Skills</a>
+      <a href="#experience" class="nav-link">Experience</a>
+      <a href="#certifications" class="nav-link">Certifications</a>
+      <a href="#projects" class="nav-link">Projects</a>
+      <a href="#interests" class="nav-link">Interests</a>
+      <a href="#contact" class="nav-link">Contact</a>
+    </nav>
+
+    <!-- Theme toggle -->
+    <button class="theme-toggle" aria-label="Toggle dark mode">
+      <img src="icons/theme-light.svg" alt="" />
+    </button>
+  </div>
+</header>
 
     <main>
       <!-- HERO -->
       <section id="home" class="section hero">
         <div class="hero-text">
           <h1 class="hero-title">
-            Hey there! <span class="wave">👋</span> I'm Luciel Yu.
+            Hey there! <span class="wave">👋</span> I'm Luciel Yu
           </h1>
 
           <p class="hero-typing">
-            I am <span id="typing-text"></span><span class="cursor">|</span>
+            I am a <span id="typing-text"></span><span class="cursor">|</span>
           </p>
 
           <p class="hero-subtitle">
@@ -46,13 +52,102 @@
             <a href="#contact" class="hero-button hero-button-primary">
               Get in touch
             </a>
+
+            <!-- Update this to your actual file, e.g., /resume/Luciel_Yu_Resume.pdf -->
             <a
-              href="resume/Luciel_Yu_Resume.pdf"
+              href="/resume/Luciel_Yu_Resume.pdf"
               class="hero-button hero-button-secondary"
               target="_blank"
               rel="noopener"
             >
               Resume
+            </a>
+
+            <!-- Email -->
+            <a
+              class="hero-icon"
+              href="mailto:schwann.yu.8888@gmail.com"
+              aria-label="Email Luciel"
+              title="Email"
+            >
+              <!-- feather/lucide-style icon -->
+              <svg
+                viewBox="0 0 24 24"
+                width="18"
+                height="18"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <rect
+                  x="2"
+                  y="4"
+                  width="20"
+                  height="16"
+                  rx="2"
+                  ry="2"
+                ></rect>
+                <path d="M22 6 12 13 2 6"></path>
+              </svg>
+            </a>
+
+            <!-- LinkedIn -->
+            <a
+              class="hero-icon"
+              href="https://www.linkedin.com/in/-zixuan-yu"
+              target="_blank"
+              rel="noopener"
+              aria-label="LinkedIn"
+              title="LinkedIn"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                width="18"
+                height="18"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <rect x="2" y="9" width="4" height="12"></rect>
+                <circle cx="4" cy="4" r="2"></circle>
+                <path
+                  d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"
+                ></path>
+              </svg>
+            </a>
+
+            <!-- GitHub -->
+            <a
+              class="hero-icon"
+              href="https://github.com/Lucielyu"
+              target="_blank"
+              rel="noopener"
+              aria-label="GitHub"
+              title="GitHub"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                width="18"
+                height="18"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path
+                  d="M15 22v-3.5a4.8 4.8 0 0 0-1.2-3.3c3 0 6-2 6-5.6.08-1.4-.35-2.8-1.2-3.9
+               .37-1.3.37-2.8 0-4 0 0-1 .1-3 1.5a13 13 0 0 0-8 0C5.6 2.4 4.6 2.3 4.6 2.3
+               c-.37 1.2-.37 2.7 0 4C3.7 7 3.3 8.4 3.4 9.8c0 3.6 3 5.6 6 5.6-.7.8-1 1.8-1 2.6V22"
+                />
+              </svg>
             </a>
           </div>
         </div>
@@ -63,7 +158,18 @@
             <img src="luciel.jpg" alt="Luciel Yu" class="avatar-img" />
           </div>
         </div>
+
+        <!-- Scroll hint at bottom of hero -->
+        <a
+          href="#about"
+          class="hero-scroll"
+          aria-label="Scroll to About section"
+        >
+          <span class="hero-scroll-label">Scroll</span>
+          <span class="hero-scroll-arrow"></span>
+        </a>
       </section>
+
 
       <!-- ABOUT -->
       <section id="about" class="section">
@@ -210,7 +316,11 @@
                 <span class="tech-label">Tableau</span>
               </li>
               <li class="tech-item">
-                <img src="icons/powerbi.svg" alt="Power BI" class="tech-icon" />
+                <img
+                  src="icons/powerbi.svg"
+                  alt="Power BI"
+                  class="tech-icon"
+                />
                 <span class="tech-label">Power BI</span>
               </li>
               <li class="tech-item">
@@ -331,25 +441,19 @@
                 </p>
                 <ul>
                   <li>
-                    Review 70–80 daily financial transaction claims across
-                    multiple systems, catching data issues before they impact
-                    customers.
+                    Reconciled and audited annuity related payments and withdrawals to beneficiaries, insured owners, and annuitants in Excel and Accounting Audit dashboards to validate outgoing annuity withdrawals across multiple portfolios
                   </li>
                   <li>
-                    Reconcile cash movements using Excel models and dashboards,
-                    partnering with accounting to resolve variances quickly.
+                    Process roughly 110-120 daily annuity financial transaction claims across Oracle Financial Cloud and Microsoft Dynamics 365, validating customer records and payments accurate and compliant
                   </li>
                   <li>
-                    Build reusable checks and templates that reduce manual
-                    validation time for the team.
+                    Partnered with broker management teams to organize and index financial advisor and internal wholesaler documentation for easier search and review
                   </li>
                   <li>
-                    Organize broker and advisor documentation so teams can
-                    locate historical records in seconds instead of minutes.
+                    Assess customer claims and policy information, verifying data integrity to support reliable audits for the operations team and validating potential claim payments
                   </li>
                   <li>
-                    Surface recurring trends and edge-cases to leadership to
-                    inform process improvements and training.
+                    Surface many potential business optimization plans for current department to leadership, assisting with optimization project implementation plans to agile sprints, solving business problems that weren't identified within department
                   </li>
                 </ul>
               </div>
@@ -378,26 +482,20 @@
                 </p>
                 <ul>
                   <li>
-                    Designed and shipped “Echo,” an internal LLM chatbot that
-                    helps teams answer ERP questions and reduces onboarding time
-                    for new hires.
+                    Developed “Echo,” an AI‑powered chatbot large language model (LLM) that answers common questions and summarizes internal documents, resulted in improved customer support response time, and better response to inquiries
                   </li>
                   <li>
-                    Experimented with prompts and retrieval-augmented generation
-                    pipelines to balance helpfulness, latency, and hallucination
-                    rates.
+                    Enhanced LLM reliability by applying retrieval‑augmented generation (RAG) and thoughtful prompt engineering to reduce hallucinations and boost LLM response accuracy
                   </li>
                   <li>
-                    Integrated the assistant with AWS services for secure data
-                    access, logging, and monitoring.
+                    Integrated OpenAI and Amazon Titan models and wired them into AWS S3 for secure storage and retrieval of internal data
                   </li>
                   <li>
-                    Partnered with business and customer-service stakeholders to
-                    validate that responses matched real workflows.
+                    Collaborated with customer service, cloud engineers, and executives on user testing, secure deployment, and demos to ensure the solution could scale across teams
                   </li>
                   <li>
                     Documented the solution and delivered demos that helped drive
-                    adoption and future iteration.
+                    adoption and future scalability
                   </li>
                 </ul>
               </div>
@@ -426,25 +524,19 @@
                 </p>
                 <ul>
                   <li>
-                    Built a WhatsApp integration that lets users check vehicle
-                    status and alerts directly from their phone.
+                    Developed a WhatsApp based application with Python and AWS cloud services that lets drivers check real time vehicle status, including battery level, relative location, lock state, and mileage range
                   </li>
                   <li>
-                    Developed a virtual vehicle-testing simulator that reduced
-                    reliance on physical cars and shortened feedback loops for
-                    engineers.
+                    Created a virtual vehicle simulation tool to test the vehicle features without always needing physical cars, helping lower testing costs and speed up development cycles
                   </li>
                   <li>
-                    Designed and consumed RESTful APIs that move telemetry and
-                    configuration data between services.
+                    Integrated RESTful APIs into the testing program and used AWS services such as API Gateway, Route 53, Lambda, and Certificate Manager to improve reliability and efficiency
                   </li>
                   <li>
-                    Deployed services on AWS using API Gateway, Lambda, and S3,
-                    with monitoring in place for demos and testing.
+                    Generated GeoJSON-based geospatial outlines of EV charging stations using geolocation APIs so vehicles can detect nearby chargers and show proximity alerts on in‑car dashboards
                   </li>
                   <li>
-                    Collaborated with QA and product teams to define test cases
-                    and demo scenarios for leadership reviews.
+                    Collaborated with DevOps teams to define test cases testing vehicle simulator program, identifying critical weakpoints and catching exceptions within code
                   </li>
                 </ul>
               </div>
@@ -471,24 +563,20 @@
                 <p class="timeline-company">Leapers, Inc. · Livonia, MI</p>
                 <ul>
                   <li>
-                    Used Epicor and SQL queries to optimize carton selection,
-                    reducing shipping costs and mis-picked orders.
+                    Optimized C# algorithms integrated with Epicor ERP to improve carton selection logic, better match product dimensions with carton sizes, reducing shipping costs and avoiding oversized packaging
                   </li>
                   <li>
-                    Cleaned and restructured product data to support the launch
-                    of a refreshed e-commerce site.
+                    Updated and standardized 300+ product catalog items and descriptions in Magento to support the launch of a new website
                   </li>
                   <li>
                     Implemented UI and navigation improvements that made it
                     easier for customers and internal users to find parts.
                   </li>
                   <li>
-                    Partnered with warehouse and IT teams to map end-to-end
-                    processes and remove manual steps.
+                    Built a Windows Forms application connected to Epicor that allows to query customer orders by date range and quickly retrieve order lists
                   </li>
                   <li>
-                    Produced lightweight documentation so future interns and
-                    teammates could pick up projects quickly.
+                    Worked with IT and warehouse teams to analyze day‑to‑day operations and provide data‑backed recommendations for resource optimization and process improvements
                   </li>
                 </ul>
               </div>
@@ -497,237 +585,500 @@
         </div>
       </section>
 
-      <!-- INTERESTS -->
-            <!-- INTERESTS -->
-            <section id="interests" class="section">
-              <div class="section-header">
-                <h2>Interests</h2>
-                <div class="section-ribbon"></div>
-              </div>
-      
-              <div class="interests-grid">
-                <!-- Video Games -->
-                <div class="interest-card">
-                  <h3>
-                    Video Games
-                    <img
-                      src="icons/interest-games.svg"
-                      alt=""
-                      class="interest-icon"
-                    />
-                  </h3>
-                  <p>
-                    Video games are my favorite way to unwind and escape after a long
-                    day of work. I love immersing myself in different virtual
-                    worlds—exploring rich narratives, discovering new environments, or
-                    getting competitive with others in multiplayer. Gaming sharpens my
-                    reflexes, strategic thinking, and teamwork as we work together
-                    toward one goal: winning.
-                  </p>
-                  <p>
-                    I’m especially drawn to RPGs with turn‑based combat and deep,
-                    story‑driven campaigns. For me, games are a way to experience new
-                    perspectives and stories I might never encounter in real life.
-                  </p>
-                  <p>
-                    <strong>Favorite games:</strong> Clair Obscur: Expedition 33,
-                    Black Myth: Wukong, Elden Ring, Sekiro
-                  </p>
-                  <p>
-                    <strong>Currently playing:</strong> Honkai: Star Rail, League of
-                    Legends, Teamfight Tactics, Where Winds Meet
-                  </p>
-                </div>
-      
-                <!-- Shows -->
-                <div class="interest-card">
-                  <h3>
-                    Shows
-                    <img
-                      src="icons/interest-shows.svg"
-                      alt=""
-                      class="interest-icon"
-                    />
-                  </h3>
-                  <p>
-                    Watching shows is more of a companion hobby for me—something I
-                    enjoy while doing other activities like walking on the treadmill
-                    or gaming. I grew up watching a lot of anime and donghua, and I’ve
-                    always loved the unique plots and storytelling styles. Over time,
-                    it just became a natural part of my daily routine and a cozy way
-                    to relax.
-                  </p>
-                  <p><strong>Favorite show:</strong> To Be Hero X</p>
-                </div>
-      
-                <!-- Food -->
-                <div class="interest-card">
-                  <h3>
-                    Food
-                    <img
-                      src="icons/interest-food.svg"
-                      alt=""
-                      class="interest-icon"
-                    />
-                  </h3>
-                  <p>
-                    I’m a big foodie—whether it’s exploring new restaurants or
-                    experimenting with recipes at home, I love all kinds of cuisine.
-                    Lately, I’ve been trying to cook more for other people, which has
-                    been both fun and challenging. I also really enjoy checking out
-                    new cafés, pastry shops, and tea spots whenever I can.
-                  </p>
-                  <p>
-                    <strong>Fun fact:</strong> Some people say I can cook a delicious
-                    New York strip steak to “perfection.”
-                  </p>
-                </div>
-      
-                <!-- Weightlifting -->
-                <div class="interest-card">
-                  <h3>
-                    Weightlifting
-                    <img
-                      src="icons/interest-weightlifting.svg"
-                      alt=""
-                      class="interest-icon"
-                    />
-                  </h3>
-                  <p>
-                    Weightlifting is something I’ve been on and off with over the
-                    years, but lately it’s become a much more consistent part of my
-                    routine. It helps me relieve stress, stay focused throughout the
-                    day, and feel better about myself overall. Getting back into
-                    working out has taught me discipline, and I’ve already noticed
-                    significant progress.
-                  </p>
-                  <p>
-                    I hold myself accountable by fitting in a few hours of strength
-                    and endurance training before work while also trying to maintain a
-                    healthy diet.
-                  </p>
-                  <p>
-                    <strong>Goal:</strong> Bench 250 lbs and run the Chicago 5K
-                  </p>
-                </div>
-      
-                <!-- Reading -->
-                <div class="interest-card">
-                  <h3>
-                    Reading
-                    <img
-                      src="icons/interest-reading.svg"
-                      alt=""
-                      class="interest-icon"
-                    />
-                  </h3>
-                  <p>
-                    Reading is a relatively new hobby I picked up as part of my own
-                    self‑discovery journey. I started with American classics because
-                    they explore important themes that connect to real‑life lessons.
-                    These days, I’m more focused on books that help me gain new
-                    perspectives and understand myself better.
-                  </p>
-                  <p>
-                    <strong>Impactful read:</strong> Atomic Habits has really
-                    influenced the way I think and approach my life.
-                  </p>
-                  <p>
-                    <strong>Open invite:</strong> Feel free to message me for book
-                    recommendations!
-                  </p>
-                </div>
-      
-                <!-- Traveling -->
-                <div class="interest-card">
-                  <h3>
-                    Traveling
-                    <img
-                      src="icons/interest-travel.svg"
-                      alt=""
-                      class="interest-icon"
-                    />
-                  </h3>
-                  <p>
-                    Traveling is one of my biggest sources of excitement. I love
-                    exploring new cities and seeing how people live in different
-                    states and countries. Experiencing different cultural perspectives
-                    is a huge part of why I enjoy it so much.
-                  </p>
-                  <p>
-                    Whenever I visit somewhere new, I have to try the local food or
-                    visit places I can’t find back home. I also enjoy wandering
-                    through shopping and business districts to get a feel for everyday
-                    life there. In the future, there are many places around the world
-                    I hope to explore.
-                  </p>
-                  <p>
-                    <strong>Great feat:</strong> Walking along the Great Wall of China
-                  </p>
-                </div>
-      
-                <!-- Board & Card Games -->
-                <div class="interest-card">
-                  <h3>
-                    Board &amp; Card Games
-                    <img
-                      src="icons/interest-boardgames.svg"
-                      alt=""
-                      class="interest-icon"
-                    />
-                  </h3>
-                  <p>
-                    Board and card games are a great, low‑cost way for me to spend
-                    time with friends. I especially enjoy strategy and
-                    social‑deduction games because I like observing how people think
-                    and react under pressure.
-                  </p>
-                  <p>
-                    Games like Coup, Mafia, Chameleon, and Betrayal at House on the
-                    Hill have definitely sharpened my understanding of how different
-                    people approach problems and handle stress.
-                  </p>
-                  <p>
-                    <strong>Current favorite:</strong> One Night Ultimate Werewolf
-                  </p>
-                </div>
-      
-                <!-- Model Kit Building -->
-                <div class="interest-card">
-                  <h3>
-                    Model Kit Building
-                    <img
-                      src="icons/interest-modelkits.svg"
-                      alt=""
-                      class="interest-icon"
-                    />
-                  </h3>
-                  <p>
-                    I love building model kits—Gundam figurines, LEGO sets, and more.
-                    Growing up, I built a lot of complex Gundam kits (awesome
-                    mech‑robots, basically), and that hobby taught me patience and
-                    attention to detail.
-                  </p>
-                  <p>
-                    Many parts are fragile and easy to break, so taking my time leads
-                    to a cleaner, more polished final build than rushing ever would.
-                    It’s also taught me the importance of following clear
-                    instructions—the detailed steps guide the entire process and show
-                    exactly which parts go where.
-                  </p>
-                  <p>
-                    I enjoy both the building journey and the satisfaction of seeing
-                    the finished model proudly displayed.
-                  </p>
-                  <p>
-                    <strong>Proudest display:</strong> Hathaway’s Xi vs. Penelope set
-                  </p>
-                </div>
-              </div>
-            </section>
-      
+      <!-- CERTIFICATIONS -->
+<section id="certifications" class="section section-certifications">
+  <div class="section-header">
+    <h2>Certifications</h2>
+    <div class="section-ribbon"></div>
+  </div>
 
-                  <!-- CONTACT -->
+  <p class="cert-intro">
+    Recognized learning and credentials across finance, markets, and analysis.
+  </p>
+
+  <div class="cert-grid">
+    <!-- FMVA -->
+    <article class="cert-card">
+      <div class="cert-logo">
+        <!-- make sure this file exists in /icons/ -->
+        <img src="icons/cfi.svg" alt="Corporate Finance Institute logo" />
+      </div>
+      <h3>Financial Modeling &amp; Valuation Analyst (FMVA)</h3>
+      <p class="cert-issuer">Corporate Finance Institute</p>
+      <p class="cert-dates">Issued November 2025</p>
+      <a
+        class="cert-link"
+        href="https://credentials.corporatefinanceinstitute.com/66fddc1c-b2e3-4cbe-8cbd-24fa81d574b5#acc.CnHyc87S"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        View Certificate
+      </a>
+    </article>
+
+    <!-- Bloomberg Spreadsheet Analysis -->
+    <article class="cert-card">
+      <div class="cert-logo">
+        <img src="icons/bloomberg.svg" alt="Bloomberg logo" />
+      </div>
+      <h3>Bloomberg Spreadsheet Analysis</h3>
+      <p class="cert-issuer">Bloomberg</p>
+      <p class="cert-dates">Issued November 2025</p>
+      <a
+        class="cert-link"
+        href="https://portal.bloombergforeducation.com/certificates/4XciMfpiYHQTF8D478vXxWbz"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        View Certificate
+      </a>
+    </article>
+
+    <!-- Bloomberg Market Concepts -->
+    <article class="cert-card">
+      <div class="cert-logo">
+        <img src="icons/bloomberg.svg" alt="Bloomberg logo" />
+      </div>
+      <h3>Bloomberg Market Concepts (BMC)</h3>
+      <p class="cert-issuer">Bloomberg</p>
+      <p class="cert-dates">Issued October 2025</p>
+      <a
+        class="cert-link"
+        href="https://portal.bloombergforeducation.com/certificates/VTVMZm4nFF1PgJw7fbP41mhC"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        View Certificate
+      </a>
+    </article>
+
+    <!-- Bloomberg Finance Fundamentals -->
+    <article class="cert-card">
+      <div class="cert-logo">
+        <img src="icons/bloomberg.svg" alt="Bloomberg logo" />
+      </div>
+      <h3>Bloomberg Finance Fundamentals</h3>
+      <p class="cert-issuer">Bloomberg</p>
+      <p class="cert-dates">Issued October 2025</p>
+      <a
+        class="cert-link"
+        href="https://portal.bloombergforeducation.com/certificates/Q5cMXroGFkg2qd1FFWJzxfPY"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        View Certificate
+      </a>
+    </article>
+
+    <!-- FPAP (in progress) -->
+    <article class="cert-card cert-in-progress">
+      <div class="cert-logo">
+        <img src="icons/cfi.svg" alt="Corporate Finance Institute logo" />
+      </div>
+      <h3>Financial Planning &amp; Analysis Professional (FPAP)</h3>
+      <p class="cert-issuer">Corporate Finance Institute</p>
+      <p class="cert-dates">In progress · Target December 2025</p>
+      <span class="cert-chip">In Progress</span>
+    </article>
+
+    <!-- SIE (in progress) -->
+    <article class="cert-card cert-in-progress">
+      <div class="cert-logo">
+        <img src="icons/finra.svg" alt="FINRA logo" />
+      </div>
+      <h3>Securities Industry Essentials (SIE)</h3>
+      <p class="cert-issuer">FINRA</p>
+      <p class="cert-dates">In progress · Target 2026</p>
+      <span class="cert-chip">In Progress</span>
+    </article>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" class="section section-projects">
+  <div class="section-header">
+    <h2>Projects</h2>
+    <div class="section-ribbon"></div>
+  </div>
+
+  <p class="projects-intro">
+    A mix of technical, analytics, and finance projects spanning coursework, hackathons, and case studies.
+  </p>
+
+  <div class="projects-grid">
+    <!-- Euchre -->
+    <article class="project-card">
+      <h3 class="project-title">Euchre Game Engine</h3>
+      <p class="project-meta">
+        University of Michigan · Undergraduate project
+      </p>
+      <ul class="project-bullets">
+        <li>
+          Built a playable Euchre card game that implements dealing, trick-taking, and scoring logic.
+        </li>
+        <li>
+          Structured the program with clear C++ classes to keep game rules and state easy to extend.
+        </li>
+      </ul>
+      <div class="project-tags">
+        <span class="project-tag">C++</span>
+        <span class="project-tag">Game Logic</span>
+        <span class="project-tag">Visual Studio Code</span>
+      </div>
+    </article>
+
+    <!-- HORSE Geolocation Game -->
+    <article class="project-card">
+      <h3 class="project-title">HORSE Geolocation Game</h3>
+      <p class="project-meta">
+        Stellantis Hackathon · 3rd Place
+      </p>
+      <ul class="project-bullets">
+        <li>
+          Created a location‑based game that uses a vehicle’s GPS position to pull nearby place names and “spell” HORSE as you drive.
+        </li>
+        <li>
+          Used Python, GeoJSON, and APIs to translate raw coordinates into locations in near real time.
+        </li>
+      </ul>
+      <div class="project-tags">
+        <span class="project-tag">Python</span>
+        <span class="project-tag">GeoJSON</span>
+        <span class="project-tag">APIs</span>
+        <span class="project-tag">Visual Studio Code</span>
+      </div>
+    </article>
+
+    <!-- Intel Sustainability (Tableau) -->
+    <article class="project-card">
+      <h3 class="project-title">Intel Sustainability Site Analysis</h3>
+      <p class="project-meta">
+        Tableau · Energy &amp; location analytics
+      </p>
+      <ul class="project-bullets">
+        <li>
+          Analyzed regional energy consumption, grid mix, and key KPIs to identify candidate locations for a new Intel sustainability center.
+        </li>
+        <li>
+          Built Tableau dashboards with maps and filters to compare regions side‑by‑side for decision makers.
+        </li>
+      </ul>
+      <div class="project-tags">
+        <span class="project-tag">Tableau</span>
+        <span class="project-tag">Data Visualization</span>
+        <span class="project-tag">Sustainability</span>
+      </div>
+    </article>
+
+    <!-- Recording Academy / GRAMMYs -->
+    <article class="project-card">
+      <h3 class="project-title">Recording Academy &amp; GRAMMYs Web Analysis</h3>
+      <p class="project-meta">
+        Excel · Web &amp; traffic analytics
+      </p>
+      <ul class="project-bullets">
+        <li>
+          Evaluated traffic, engagement, and funnel metrics to understand whether the GRAMMYs and Recording Academy sites perform better merged or separate.
+        </li>
+        <li>
+          Used PivotTables, X/VLOOKUPs, INDEX‑MATCH, and scorecards to summarize findings for non‑technical stakeholders.
+        </li>
+      </ul>
+      <div class="project-tags">
+        <span class="project-tag">Excel</span>
+        <span class="project-tag">PivotTables</span>
+        <span class="project-tag">XLOOKUP</span>
+        <span class="project-tag">Web Analytics</span>
+      </div>
+    </article>
+
+    <!-- Bloomberg BQL Case Studies -->
+    <article class="project-card">
+      <h3 class="project-title">Bloomberg BQL Case Studies</h3>
+      <p class="project-meta">
+        Bloomberg Terminal · Market data research
+      </p>
+      <ul class="project-bullets">
+        <li>
+          Explored equity and fixed‑income datasets using Bloomberg Query Language (BQL) and Terminal functions.
+        </li>
+        <li>
+          Built templates to screen securities, compare peers, and track macro indicators for case‑study prompts.
+        </li>
+      </ul>
+      <div class="project-tags">
+        <span class="project-tag">Bloomberg Terminal</span>
+        <span class="project-tag">BQL</span>
+        <span class="project-tag">Market Data</span>
+      </div>
+    </article>
+
+    <!-- CFI Business Case Studies -->
+    <article class="project-card">
+      <h3 class="project-title">CFI Business &amp; Valuation Case Studies</h3>
+      <p class="project-meta">
+        Excel · Financial modeling &amp; valuation
+      </p>
+      <ul class="project-bullets">
+        <li>
+          Built integrated three‑statement models and forecasts covering income statements, balance sheets, and cash flows.
+        </li>
+        <li>
+          Applied DCF and relative valuation, capital structure analysis, and scenario/sensitivity modeling to corporate and bank cases.
+        </li>
+      </ul>
+      <div class="project-tags">
+        <span class="project-tag">Excel</span>
+        <span class="project-tag">3‑Statement Modeling</span>
+        <span class="project-tag">DCF Valuation</span>
+        <span class="project-tag">Scenario Analysis</span>
+      </div>
+    </article>
+  </div>
+</section>
+
+      <!-- INTERESTS -->
+      <section id="interests" class="section">
+        <div class="section-header">
+          <h2>Interests</h2>
+          <div class="section-ribbon"></div>
+        </div>
+
+        <p class="section-subtle-hint">Click an interest to learn more.</p>
+
+        <div class="interests-grid interests-tiles">
+          <!-- Video Games -->
+          <div class="interest-card" tabindex="0" aria-expanded="false">
+            <div class="interest-mini">
+              <img
+                src="icons/interest-games.svg"
+                alt=""
+                class="interest-icon"
+              />
+              <h3>Video Games</h3>
+            </div>
+            <div class="interest-detail">
+              <p>
+                Video games are my favorite way to unwind and escape after a
+                long day of work. I love immersing myself in different virtual
+                worlds—exploring rich narratives, discovering new environments,
+                or getting competitive with others in multiplayer. Gaming
+                sharpens my reflexes, strategic thinking, and teamwork as we
+                work together toward one goal: winning.
+              </p>
+              <p>
+                I’m especially drawn to RPGs with turn‑based combat and deep,
+                story‑driven campaigns. For me, games are a way to experience
+                new perspectives and stories I might never encounter in real
+                life.
+              </p>
+              <p>
+                <strong>Favorite games:</strong> Clair Obscur: Expedition 33,
+                Black Myth: Wukong, Elden Ring, Sekiro
+              </p>
+              <p>
+                <strong>Currently playing:</strong> Honkai: Star Rail, League of
+                Legends, Teamfight Tactics, Where Winds Meet
+              </p>
+            </div>
+          </div>
+
+          <!-- Shows -->
+          <div class="interest-card" tabindex="0" aria-expanded="false">
+            <div class="interest-mini">
+              <img
+                src="icons/interest-shows.svg"
+                alt=""
+                class="interest-icon"
+              />
+              <h3>Shows</h3>
+            </div>
+            <div class="interest-detail">
+              <p>
+                Watching shows is more of a companion hobby for me—something I
+                enjoy while doing other activities like walking on the treadmill
+                or gaming. I grew up watching a lot of anime and donghua, and
+                I’ve always loved the unique plots and storytelling styles. Over
+                time, it just became a natural part of my daily routine and a
+                cozy way to relax.
+              </p>
+              <p><strong>Favorite show:</strong> To Be Hero X</p>
+            </div>
+          </div>
+
+          <!-- Food -->
+          <div class="interest-card" tabindex="0" aria-expanded="false">
+            <div class="interest-mini">
+              <img
+                src="icons/interest-food.svg"
+                alt=""
+                class="interest-icon"
+              />
+              <h3>Food</h3>
+            </div>
+            <div class="interest-detail">
+              <p>
+                I’m a big foodie—whether it’s exploring new restaurants or
+                experimenting with recipes at home, I love all kinds of cuisine.
+                Lately, I’ve been trying to cook more for other people, which
+                has been both fun and challenging. I also really enjoy checking
+                out new cafés, pastry shops, and tea spots whenever I can.
+              </p>
+              <p>
+                <strong>Fun fact:</strong> Some people say I can cook a
+                delicious New York strip steak to “perfection.”
+              </p>
+            </div>
+          </div>
+
+          <!-- Weightlifting -->
+          <div class="interest-card" tabindex="0" aria-expanded="false">
+            <div class="interest-mini">
+              <img
+                src="icons/interest-weightlifting.svg"
+                alt=""
+                class="interest-icon"
+              />
+              <h3>Weightlifting</h3>
+            </div>
+            <div class="interest-detail">
+              <p>
+                Weightlifting is something I’ve been on and off with over the
+                years, but lately it’s become a much more consistent part of my
+                routine. It helps me relieve stress, stay focused throughout the
+                day, and feel better about myself overall. Getting back into
+                working out has taught me discipline, and I’ve already noticed
+                significant progress.
+              </p>
+              <p>
+                I hold myself accountable by fitting in a few hours of strength
+                and endurance training before work while also trying to maintain
+                a healthy diet.
+              </p>
+              <p>
+                <strong>Goal:</strong> Bench 250 lbs and run the Chicago 5K
+              </p>
+            </div>
+          </div>
+
+          <!-- Reading -->
+          <div class="interest-card" tabindex="0" aria-expanded="false">
+            <div class="interest-mini">
+              <img
+                src="icons/interest-reading.svg"
+                alt=""
+                class="interest-icon"
+              />
+              <h3>Reading</h3>
+            </div>
+            <div class="interest-detail">
+              <p>
+                Reading is a relatively new hobby I picked up as part of my own
+                self‑discovery journey. I started with American classics because
+                they explore important themes that connect to real‑life lessons.
+                These days, I’m more focused on books that help me gain new
+                perspectives and understand myself better.
+              </p>
+              <p><strong>Impactful read:</strong> Atomic Habits</p>
+              <p>
+                <strong>Open invite:</strong> Feel free to message me for book
+                recommendations!
+              </p>
+            </div>
+          </div>
+
+          <!-- Traveling -->
+          <div class="interest-card" tabindex="0" aria-expanded="false">
+            <div class="interest-mini">
+              <img
+                src="icons/interest-travel.svg"
+                alt=""
+                class="interest-icon"
+              />
+              <h3>Traveling</h3>
+            </div>
+            <div class="interest-detail">
+              <p>
+                Traveling is one of my biggest sources of excitement. I love
+                exploring new cities and seeing how people live in different
+                states and countries. Experiencing different cultural
+                perspectives is a huge part of why I enjoy it so much.
+              </p>
+              <p>
+                Whenever I visit somewhere new, I have to try the local food or
+                visit places I can’t find back home. I also enjoy wandering
+                through shopping and business districts to get a feel for
+                everyday life there. In the future, there are many places around
+                the world I hope to explore.
+              </p>
+              <p>
+                <strong>Great feat:</strong> Walking along the Great Wall of
+                China
+              </p>
+            </div>
+          </div>
+
+          <!-- Board & Card Games -->
+          <div class="interest-card" tabindex="0" aria-expanded="false">
+            <div class="interest-mini">
+              <img
+                src="icons/interest-boardgames.svg"
+                alt=""
+                class="interest-icon"
+              />
+              <h3>Board &amp; Card Games</h3>
+            </div>
+            <div class="interest-detail">
+              <p>
+                Board and card games are a great, low‑cost way for me to spend
+                time with friends. I especially enjoy strategy and
+                social‑deduction games because I like observing how people think
+                and react under pressure. Games like Coup, Mafia, Chameleon, and
+                Betrayal at House on the Hill have definitely sharpened my
+                understanding of how different people approach problems and
+                handle stress.
+              </p>
+              <p>
+                <strong>Current favorite:</strong> One Night Ultimate Werewolf
+              </p>
+            </div>
+          </div>
+
+          <!-- Model Kit Building -->
+          <div class="interest-card" tabindex="0" aria-expanded="false">
+            <div class="interest-mini">
+              <img
+                src="icons/interest-modelkits.svg"
+                alt=""
+                class="interest-icon"
+              />
+              <h3>Model Kit Building</h3>
+            </div>
+            <div class="interest-detail">
+              <p>
+                I love building model kits—Gundam figurines, LEGO sets, and
+                more. Growing up, I built a lot of complex Gundam kits, and that
+                hobby taught me patience and attention to detail. Many parts are
+                fragile and easy to break, so taking my time leads to a cleaner,
+                more polished final build than rushing ever would.
+              </p>
+              <p>
+                It’s also taught me the importance of following clear
+                instructions. The detailed steps guide the entire process,
+                showing exactly which parts go where. I enjoy both the building
+                journey and the satisfaction of seeing the finished model proudly
+                displayed.
+              </p>
+              <p>
+                <strong>Proudest display:</strong> Hathaway’s Xi vs. Penelope
+                set
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
       <section id="contact" class="section">
         <div class="section-header">
           <h2>Contact</h2>
@@ -740,8 +1091,8 @@
             <h3>Get in touch</h3>
             <p>
               If you're interested in learning more about me, my work, have
-              questions, or just want to say hello, feel free to send me
-              a message. I look forward to hearing from you!
+              questions, or just want to say hello, feel free to send me a
+              message.
             </p>
             <p>
               <strong>Email:</strong>
@@ -865,8 +1216,7 @@
           </div>
         </div>
       </section>
-
-      
+    </main>
 
     <footer class="site-footer">
       <p>© 2025 Luciel Yu · Held together by duct tape and caffeine.</p>
