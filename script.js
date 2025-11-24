@@ -1,12 +1,27 @@
 document.addEventListener("DOMContentLoaded", () => {
+  /* Sync CSS header height so hero exactly fills the first screen */
+  const header = document.querySelector(".site-header");
+  if (header) {
+    const setHeaderHeightVar = () => {
+      document.documentElement.style.setProperty(
+        "--header-height",
+        header.offsetHeight + "px"
+      );
+    };
+    setHeaderHeightVar();
+    window.addEventListener("resize", setHeaderHeightVar);
+  }
+
   /* Typing effect */
   const roles = [
-    "a proud Wolverine",
-    "a lifelong learner",
-    "a humble individual",
-    "an aspiring CFA",
-    "an avid gamer",
-    "an analyst",
+    "proud Wolverine and Michigander",
+    "lifelong learner",
+    "philanthropist",
+    "financial and data analyst",
+    "coffee-fueled developer",
+    "big foodie",
+    "strategy-game enthusiast",
+    "aspiring CFA",
   ];
 
   const typingSpan = document.getElementById("typing-text");
@@ -165,5 +180,42 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  /* Interests: click/keyboard to expand tiles (no hover expansion) */
+  const interestCards = document.querySelectorAll(".interest-card");
 
+  function collapseAll() {
+    interestCards.forEach((c) => {
+      c.classList.remove("expanded");
+      c.setAttribute("aria-expanded", "false");
+    });
+  }
+
+  function toggleCard(card) {
+    const isOpen = card.classList.contains("expanded");
+    collapseAll();
+    if (!isOpen) {
+      card.classList.add("expanded");
+      card.setAttribute("aria-expanded", "true");
+      card.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+        inline: "center",
+      });
+    }
+  }
+
+  interestCards.forEach((card) => {
+    card.addEventListener("click", () => toggleCard(card));
+    card.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        toggleCard(card);
+      }
+    });
+  });
+
+  // Optional: collapse when clicking outside an open tile
+  document.addEventListener("click", (e) => {
+    if (!e.target.closest(".interest-card")) collapseAll();
+  });
 });
