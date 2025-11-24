@@ -8,6 +8,7 @@
   --radius-big: 24px;
   --radius: 12px;
   --shadow-soft: 0 18px 40px rgba(0, 0, 0, 0.12);
+  --header-height: 72px; /* default, updated by JS */
 }
 
 *,
@@ -69,10 +70,31 @@ body.dark-mode .theme-toggle {
   backdrop-filter: blur(10px);
   display: flex;
   align-items: center;
-  justify-content: flex-end;
-  gap: 12px;
-  padding: 14px 3.5vw;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 14px 20px; /* was 14px 3.5vw */
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+}
+
+.site-logo {
+  font-weight: 700;
+  font-size: 1.15rem;
+  letter-spacing: 0.02em;
+  text-transform: none;
+  color: var(--text);
+  text-decoration: none;
+  white-space: nowrap;
+  margin-left: 8px;
+}
+
+.site-logo:hover {
+  color: var(--accent);
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
 
 .nav {
@@ -159,14 +181,117 @@ body.dark-mode .theme-toggle {
   z-index: -1;
 }
 
-/* HERO */
+/* HERO — two fixed columns, now filling first screen */
 .hero {
   display: grid;
-  grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
-  column-gap: 24px;
-  align-items: center;
-  max-width: 1100px;
+  grid-template-columns: minmax(0, 1.6fr) minmax(280px, 1fr);
+  grid-template-areas: "text avatar";
+  column-gap: 48px;
+  align-items: center;  /* center name + avatar vertically */
+  max-width: 1200px;
   margin: 0 auto;
+  position: relative; /* NEW: so the scroll hint can sit at the bottom */
+
+  min-height: calc(100vh - var(--header-height)); /*take up the first page */
+}
+
+/* Hero scroll hint at the bottom */
+.hero-scroll {
+  position: absolute;
+  left: 50%;
+  bottom: 32px;
+  transform: translateX(-50%);
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-soft);
+  text-decoration: none;
+}
+
+.hero-scroll-label {
+  opacity: 0.85;
+}
+
+/* Little pill around the arrow */
+.hero-scroll-arrow {
+  width: 26px;
+  height: 26px;
+  border-radius: 999px;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+body.dark-mode .hero-scroll-arrow {
+  border-color: rgba(255, 255, 255, 0.26);
+}
+
+/* Downward chevron using your accent blue */
+.hero-scroll-arrow::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-right: 2px solid var(--accent);
+  border-bottom: 2px solid var(--accent);
+  transform: translateY(-3px) rotate(45deg);
+  animation: hero-scroll-bounce 1.4s infinite;
+}
+
+@keyframes hero-scroll-bounce {
+  0% {
+    transform: translateY(-6px) rotate(45deg);
+    opacity: 0;
+  }
+  35% {
+    opacity: 1;
+  }
+  65% {
+    transform: translateY(2px) rotate(45deg);
+  }
+  100% {
+    transform: translateY(6px) rotate(45deg);
+    opacity: 0;
+  }
+}
+
+/* Optional: hide the hint on very small screens */
+@media (max-width: 600px) {
+  .hero-scroll {
+    bottom: 20px;
+    font-size: 0.7rem;
+  }
+}
+
+.hero-text   { grid-area: text; }
+.hero-avatar { grid-area: avatar; justify-self: end; align-self: start; }
+
+/* --- HERO: lock placement + top align avatar --- */
+.hero-text {
+  /* put text in column 1, row 1 */
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.hero-avatar {
+  /* put avatar in column 2, row 1 and pin it to the top-right */
+  grid-column: 2;
+  grid-row: 1;
+  justify-self: end;   /* right edge of the grid cell */
+  align-self: start;   /* top of the grid cell */
+}
+
+/* On mobile we stack, so let the grid auto-place again */
+@media (max-width: 800px) {
+  .hero-text,
+  .hero-avatar {
+    grid-column: auto;
+    grid-row: auto;
+  }
 }
 
 .hero-title {
@@ -175,10 +300,8 @@ body.dark-mode .theme-toggle {
   white-space: nowrap;
 }
 
-@media (max-width: 700px) {
-  .hero-title {
-    white-space: normal;
-  }
+@media (max-width: 1200px) {
+  .hero-title { white-space: normal; }
 }
 
 .wave {
@@ -194,6 +317,7 @@ body.dark-mode .theme-toggle {
 
 .hero-typing #typing-text {
   font-weight: 600;
+  color: var(--accent); /* dynamic text = blue */
 }
 
 .cursor {
@@ -264,9 +388,43 @@ body.dark-mode .theme-toggle {
   background: var(--accent-soft);
 }
 
+/* Hero social icon chips */
+.hero-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  border: 1px solid var(--accent-soft);
+  background: transparent;
+  color: var(--accent);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition:
+    transform .1s ease,
+    background .15s ease,
+    box-shadow .15s ease,
+    border-color .15s ease;
+}
+
+.hero-icon:hover {
+  background: var(--accent-soft);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-soft);
+}
+
+/* dark-mode touch-up (keeps contrast) */
+body.dark-mode .hero-icon {
+  border-color: #24454d;
+}
+body.dark-mode .hero-icon:hover {
+  background: #0b1720;
+}
+
 .hero-avatar {
   display: flex;
   justify-content: flex-end;
+  align-self: center; /* override earlier align-self so it centers */
 }
 
 .avatar-circle {
@@ -432,7 +590,6 @@ body.dark-mode .tech-item:hover {
   transform: translateY(0);
 }
 
-/* EXPERIENCE TIMELINE */
 /* EXPERIENCE TIMELINE */
 .section-timeline .career-timeline {
   position: relative;
@@ -627,7 +784,6 @@ body.dark-mode .timeline-content li {
   }
 }
 
-
 /* mobile timeline */
 @media (max-width: 900px) {
   .section-timeline .career-timeline::before {
@@ -657,72 +813,308 @@ body.dark-mode .timeline-content li {
   }
 }
 
-/* INTERESTS */
-/* Let the Interests section use more horizontal space */
-#interests.section {
-  max-width: 1600px; /* wider than the default 1200px */
+/* small helper under heading */
+.section-subtle-hint {
+  margin: 6px 0 18px;
+  font-size: 0.96rem;
+  color: var(--text-soft);
 }
 
-.interests-grid {
+/* CERTIFICATIONS */
+.section-certifications {
+  text-align: center;
+}
+
+.section-certifications .section-header {
+  display: block;
+  margin: 0 auto 10px;
+  text-align: center;
+}
+
+.section-certifications .section-ribbon {
+  left: 50%;
+  transform: translateX(-50%);
+  width: 180px;
+}
+
+.cert-intro {
+  margin: 4px 0 28px;
+  font-size: 0.96rem;
+  color: var(--text-soft);
+}
+
+.cert-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 28px;
 }
 
-/* Desktop / tablet: force 4 cards per row so 8 cards make 2 rows */
-@media (min-width: 800px) {
-  .interests-grid {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-  }
+/* individual cert cards */
+.cert-card {
+  background: var(--card-blue);
+  border-radius: 24px;
+  padding: 28px 26px 30px;   /* a bit more space at the bottom */
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  box-shadow: var(--shadow-soft);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  min-height: 270px;         /* slightly taller card */
 }
 
-/* On larger screens, shrink side padding so cards can be wider */
-@media (min-width: 900px) {
-  #interests.section {
-    padding-left: 3vw;  /* was 6vw from .section */
-    padding-right: 3vw;
-  }
+/* circular logo with SVG inside */
+.cert-logo {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 14px;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
 }
+
+.cert-logo img {
+  max-width: 70%;
+  max-height: 70%;
+  display: block;
+  object-fit: contain;
+}
+
+.cert-card h3 {
+  margin: 0 0 8px;
+  font-size: 1.02rem;
+}
+
+.cert-issuer {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--text-soft);
+}
+
+.cert-dates {
+  margin: 4px 0 0;
+  font-size: 0.86rem;
+  color: var(--text-soft);
+}
+
+/* View Certificate aligned at the bottom */
+.cert-link {
+  margin-top: auto;           /* pushes the link toward the bottom */
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.cert-link:hover {
+  text-decoration: underline;
+}
+
+/* in-progress chips for FPAP + SIE */
+.cert-chip {
+  margin-top: auto;           /* same bottom alignment for these cards */
+  padding: 4px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--accent-soft);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--accent);
+}
+
+.cert-in-progress .cert-logo {
+  opacity: 0.95;
+}
+
+/* dark mode touch-ups */
+body.dark-mode .cert-card {
+  border-color: rgba(255, 255, 255, 0.06);
+}
+
+body.dark-mode .cert-logo {
+  background: #ffffff;              /* keep the logo circle bright */
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.7);
+}
+
+body.dark-mode .cert-logo img {
+  filter: none;                      /* preserve original brand colors */
+  opacity: 1;
+}
+
+/* PROJECTS */
+.section-projects {
+  text-align: center;
+}
+
+.section-projects .section-header {
+  display: block;
+  margin: 0 auto 10px;
+  text-align: center;
+}
+
+.section-projects .section-ribbon {
+  left: 50%;
+  transform: translateX(-50%);
+  width: 150px;
+}
+
+.projects-intro {
+  margin: 4px 0 26px;
+  font-size: 0.96rem;
+  color: var(--text-soft);
+}
+
+/* grid of project cards */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+.project-card {
+  background: var(--card-blue);
+  border-radius: 22px;
+  padding: 22px 24px 20px;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  box-shadow: var(--shadow-soft);
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.project-title {
+  margin: 0 0 6px;
+  font-size: 1.05rem;
+}
+
+.project-meta {
+  margin: 0 0 10px;
+  font-size: 0.88rem;
+  color: var(--text-soft);
+}
+
+.project-bullets {
+  margin: 4px 0 16px;
+  padding-left: 1.2rem;
+  list-style: disc;
+}
+
+.project-bullets li {
+  font-size: 0.9rem;
+  color: var(--text-soft);
+  margin-bottom: 4px;
+}
+
+/* tech stack chips */
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: auto; /* keeps tags at the bottom of the card */
+}
+
+.project-tag {
+  font-size: 0.8rem;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  color: var(--text-soft);
+}
+
+/* dark mode tweaks for project cards */
+body.dark-mode .project-card {
+  border-color: rgba(255, 255, 255, 0.06);
+}
+
+body.dark-mode .project-tag {
+  background: #05070b;
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+/* INTERESTS — compact tiles, click to expand */
+.interests-tiles {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-auto-flow: dense;
+  gap: 16px; /* tighter */
+}
+
+@media (max-width: 1100px) { .interests-tiles { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 800px)  { .interests-tiles { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 520px)  { .interests-tiles { grid-template-columns: 1fr; } }
 
 .interest-card {
   background: var(--card-blue);
   border-radius: var(--radius-big);
-  padding: 22px 24px;
-  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.08);
-}
-
-.interest-card h3 {
-  margin-top: 0;
-  margin-bottom: 10px;
-  color: var(--text);
-  display: flex;          /* text + icon in a row */
+  box-shadow: 0 14px 32px rgba(0,0,0,.08);
+  padding: 24px 18px 20px;
+  min-height: 160px;              /* taller tile so center is obvious */
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 8px;               /* space between text and icon */
+  justify-content: center;        /* NEW: center icon + text vertically */
+  text-align: center;
+  cursor: pointer;
+  transition: transform .35s ease, box-shadow .25s ease;
 }
 
-/* SVG icon next to each interest title */
-.interest-icon {
-  width: 24px;
-  height: 24px;
-  flex-shrink: 0;
+.interest-mini {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;                 /* a bit more space between icon + name */
+  margin-top: 0;             /* let flex centering handle vertical position */
 }
 
-/* Make interest icons pop in dark mode */
-body.dark-mode .interest-icon {
-  filter: invert(1) brightness(1.4);
-}
+.interest-icon { width: 36px; height: 36px; }
+body.dark-mode .interest-icon { filter: invert(1) brightness(1.3) contrast(1.1); }
 
-.interest-card p {
-  margin: 0 0 10px;
-  font-size: 0.95rem;
-  line-height: 1.6;
+.interest-detail {
+  margin-top: 0;
+  text-align: left;
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: opacity .25s ease, max-height .25s ease, margin-top .2s ease;
   color: var(--text-soft);
+  width: 100%;
+}
+.interest-detail p { margin: 0 0 8px; font-size: .95rem; }
+
+/* CLICK / TAP expansion only */
+.interest-card.expanded {
+  transform: scale(1.02);
+  box-shadow: 0 18px 44px rgba(0,0,0,.14);
+  grid-column: span 2;
+  grid-row: span 2;
+  align-items: flex-start;
+  justify-content: flex-start;  /* NEW: so expanded cards stay top-aligned */
+}
+.interest-card.expanded .interest-detail {
+  opacity: 1;
+  max-height: 1200px;
+  margin-top: 12px;
+}
+.interest-card.expanded .interest-mini {
+  flex-direction: row;
+  justify-content: flex-start;
+  width: 100%;
+  gap: 10px;
 }
 
-.interest-card p:last-child {
-  margin-bottom: 0;
+/* On narrow screens, let it open inline (no spanning) */
+@media (max-width: 700px) {
+  .interest-card.expanded {
+    grid-column: span 1;
+    grid-row: span 1;
+    transform: none;
+  }
 }
-
 
 /* CONTACT */
 .contact-intro {
@@ -913,7 +1305,7 @@ body.dark-mode .contact-field textarea {
   }
 
   .site-header {
-    justify-content: center;
+    justify-content: space-between; /* keep name left, nav+toggle right */
   }
 
   .nav {
